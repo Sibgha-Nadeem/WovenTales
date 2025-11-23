@@ -1,0 +1,52 @@
+# ====================
+# Work Distribution
+# ====================
+
+# -------- SERVER (Backend) --------
+server/
+ ├── index.js             # Main Express server; sets up middleware + MongoDB
+ ├── .env                 # Secrets: Mongo URI, PORT, JWT keys
+ ├── package.json         # NPM dependencies and scripts
+
+ ├── models/              # MongoDB schemas
+ │    ├── User.js         # Member 2: Users, auth, profiles
+ │    ├── Story.js        # Member 1: Stories & branching logic
+ │    └── Blog.js         # Member 4: Blogs
+
+ ├── routes/              # Express API endpoints
+ │    ├── userRoutes.js       # Member 2
+ │    ├── storyRoutes.js      # Member 1
+ │    ├── blogRoutes.js       # Member 4
+ │    └── engagementRoutes.js # Member 3
+
+ ├── controllers/         # Route logic
+ │    ├── userController.js       # Member 2
+ │    ├── storyController.js      # Member 1
+ │    ├── blogController.js       # Member 4
+ │    └── engagementController.js # Member 3
+
+ └── engagement/          # Member 3’s backend folder
+      ├── engagementController.js
+      └── engagementRoutes.js
+
+# -------- CLIENT (Frontend) --------
+client/src/
+ ├── App.js               # Main React component; routing/layout
+ ├── index.js             # React entry point
+
+ ├── components/          # Module-specific UI components
+ │    ├── Story/          # Member 1: Story UI, branching
+ │    ├── Profile/        # Member 2: Login, Signup, Profile pages
+ │    ├── Blog/           # Member 4: Blog UI
+ │    └── Engagement/     # Member 3: Likes, Comments, Ratings, Search
+
+ ├── pages/               # Optional: Route-based pages
+ └── services/            # API call functions
+      ├── storyService.js       # Member 1
+      ├── userService.js        # Member 2
+      ├── blogService.js        # Member 4
+      └── engagementService.js  # Member 3
+
+# -------- OPTIONAL --------
+context/                 # React Context / state management
+utils/                   # Helper functions shared across modules
